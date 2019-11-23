@@ -11,6 +11,7 @@ SECRET_KEY = 'b9uy0^iwq3l9l4r0c7oke&jzrv84u11@zazv)uk9m1mideu*(f'
 
 INSTALLED_APPS = [
     'footage.apps.FootageConfig',
+    'user.apps.UserConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
