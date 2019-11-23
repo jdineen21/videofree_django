@@ -15,6 +15,10 @@
     {% block javascript %}{% endblock  %}
 </head>
     <body>
-        {% block content %}{% endblock %}
+        <div id="content">
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
     </body>
 </html>

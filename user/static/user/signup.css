@@ -1,0 +1,11 @@
+
+#signup_container {
+    margin-top: 3em;
+    text-align: center;
+}
+
+#signup_form {
+    padding: 5em 4em;
+    display: inline-block;
+    background: #D3D3D3;
+}

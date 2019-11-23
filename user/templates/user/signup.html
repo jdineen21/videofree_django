@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}VideoFree.com | Signup{% endblock %}
+
+{% block description %}{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'user/signup.css' %}">
+{% endblock  %}
+
+{% block content %}
+    <div id="signup_container">
+        <h1>Sign Up for Free</h1>
+        <form id="signup_form" action="{% url 'user:sign-up' %}" method="post">
+            {% csrf_token %}
+            {{ signup_form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
