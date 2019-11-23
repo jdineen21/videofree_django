@@ -16,21 +16,21 @@
         <form id="signup_form" action="{% url 'user:sign-up' %}" method="post">
             {% csrf_token %}
             <ul>
-                <li class="input_li">
-                    <input type="text" name="username" class="text_input" placeholder="Username" maxlength="20" required="">
-                </li>
-                <li class="input_li first_name_li">
-                    <input type="text" name="first_name" class="text_input" placeholder="First name" maxlength="20" required="">
-                </li>
-                <li class="input_li second_name_li">
-                    <input type="text" name="second_name" class="text_input" placeholder="Second name" maxlength="20" required="">
-                </li>
-                <li class="input_li">
-                    <input type="email" name="email" class="text_input" placeholder="Email address" maxlength="20" required="">
-                </li>
-                <li class="input_li">
-                    <input type="password" name="password" class="text_input" placeholder="Password" maxlength="20" required="">
-                </li>
+                {% for field in signup_form %}
+                    {% if field.name == 'first_name' %}
+                        <li class="input_li first_name_li">
+                            {{ field }}
+                        </li>
+                    {% elif field.name == 'second_name' %}
+                        <li class="input_li second_name_li">
+                            {{ field }}
+                        </li>
+                    {% else %}
+                        <li class="input_li">
+                            {{ field }}
+                        </li>
+                    {% endif %}
+                {% endfor %}
             </ul>
             <input type="submit" value="Create your free account" class="submit">
         </form>
