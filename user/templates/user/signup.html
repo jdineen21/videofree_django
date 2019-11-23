@@ -12,11 +12,27 @@
 
 {% block content %}
     <div id="signup_container">
-        <h1>Sign Up for Free</h1>
+        <h1>Create New Account</h1>
         <form id="signup_form" action="{% url 'user:sign-up' %}" method="post">
             {% csrf_token %}
-            {{ signup_form.as_p }}
-            <input type="submit" value="Submit">
+            <ul>
+                <li class="input_li">
+                    <input type="text" name="username" class="text_input" placeholder="Username" maxlength="20" required="">
+                </li>
+                <li class="input_li first_name_li">
+                    <input type="text" name="first_name" class="text_input" placeholder="First name" maxlength="20" required="">
+                </li>
+                <li class="input_li second_name_li">
+                    <input type="text" name="second_name" class="text_input" placeholder="Second name" maxlength="20" required="">
+                </li>
+                <li class="input_li">
+                    <input type="email" name="email" class="text_input" placeholder="Email address" maxlength="20" required="">
+                </li>
+                <li class="input_li">
+                    <input type="password" name="password" class="text_input" placeholder="Password" maxlength="20" required="">
+                </li>
+            </ul>
+            <input type="submit" value="Create your free account" class="submit">
         </form>
     </div>
 {% endblock %}
