@@ -10,4 +10,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
 {% endblock  %}
 
-{% block content %}{% endblock %}
+{% block content %}
+    <div class="video_container">
+        <video autoplay muted loop id="video">
+            <source src="{% static 'assets/video/Frontpage_stack1.mp4' %}" type="video/mp4">
+        </video>
+        <video autoplay muted loop id="video">
+            <source src="{% static 'assets/video/Frontpage_stack2.mp4' %}" type="video/mp4">
+        </video>
+        <video autoplay muted loop id="video">
+            <source src="{% static 'assets/video/Frontpage_stack1.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+    
+{% endblock %}

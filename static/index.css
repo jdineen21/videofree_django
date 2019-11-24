@@ -1,0 +1,25 @@
+
+.video_container {
+    padding-top: 4em;
+    height: 100vh;
+    min-height: 900px;
+}
+
+video {
+    position: absolute;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    height: calc(calc(100% / 3) - calc(4em / 3));
+    min-height: 300px;
+    width: 100vw;
+}
+
+video:nth-child(2) {
+    top: calc(calc(100% / 3) + calc(8em / 3));
+}
+
+video:nth-child(3) {
+    top: calc(calc(200% / 3) + calc(4em / 3));
+}
+    
