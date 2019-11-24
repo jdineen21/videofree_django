@@ -1,7 +1,9 @@
 
 body {
     color: #ffffff;
-    background: rgb(44, 46, 51);
+    background: #505050;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 h1 {
@@ -13,10 +15,16 @@ h1 {
     line-height: 26.4px;
 }
 
-#signup_container {
-    padding-top: 8em;
+.container {
     margin: 0 auto;
-    width: 30em;
+    padding-top: 7em;
+    width: 34em;
+}
+
+#signup_container {
+    padding: 4em 2em;
+    background: rgb(44, 46, 51);
+    border-radius: 0.3em;
 }
 
 #signup_form {
@@ -61,8 +69,8 @@ ul {
 
 #signup_form .submit {
     padding: 1em 2em;
-    float: right;
     color: #ffffff;
     font-weight: 600;
     background: #0d2c81;
+    width: 100%;
 }
