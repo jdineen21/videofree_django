@@ -15,19 +15,23 @@
         <h1>Create New Account</h1>
         <form id="signup_form" action="{% url 'user:sign-up' %}" method="post">
             {% csrf_token %}
+            {{ signup_form.non_field_errors }}
             <ul>
                 {% for field in signup_form %}
                     {% if field.name == 'first_name' %}
                         <li class="input_li first_name_li">
                             {{ field }}
+                            {{ field.errors }}
                         </li>
-                    {% elif field.name == 'second_name' %}
+                    {% elif field.name == 'last_name' %}
                         <li class="input_li second_name_li">
                             {{ field }}
+                            {{ field.errors }}
                         </li>
                     {% else %}
                         <li class="input_li">
                             {{ field }}
+                            {{ field.errors }}
                         </li>
                     {% endif %}
                 {% endfor %}
