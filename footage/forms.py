@@ -18,9 +18,12 @@ class UploadFileForm(forms.Form):
             'placeholder': 'Title',
         })
     )
-    tags = forms.ChoiceField(
+    tags = forms.MultipleChoiceField(
         label='',
         choices=FOOTAGE_TAGS,
+        widget=forms.CheckboxSelectMultiple(
+
+        )
     )
     description = forms.CharField(
         label='',
