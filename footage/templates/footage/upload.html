@@ -12,8 +12,11 @@
 
 {% block content %}
     <div id="upload_container">
-        <ul>
-            {{ upload_file_form.as_ul }}
-        </ul>
+        <form id="upload_form" action="{% url 'footage:upload' %}" method="post">
+            {% csrf_token %}
+            <ul>
+                {{ upload_file_form.as_ul }}
+            </ul>
+        </form>
     </div>
 {% endblock %}
