@@ -16,6 +16,9 @@
             {% csrf_token %}
             <ul>
                 {{ upload_file_form.as_ul }}
+                <li class="submit_li">
+                    <input type="submit" value="Upload Footage" class="submit">
+                </li>
             </ul>
         </form>
     </div>
