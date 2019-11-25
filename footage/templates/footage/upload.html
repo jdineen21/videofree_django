@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}VideoFree.com | Upload{% endblock %}
+
+{% block description %}{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'footage/upload.css' %}">
+{% endblock  %}
+
+{% block content %}
+    <div id="upload_container">
+        <ul>
+            {{ upload_file_form.as_ul }}
+        </ul>
+    </div>
+{% endblock %}
