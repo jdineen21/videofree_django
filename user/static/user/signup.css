@@ -64,10 +64,13 @@ ul {
     width: 100%;
 }
 
-#signup_form .submit {
+.submit_li {
+    text-align: right;
+}
+
+.submit {
     padding: 1em 2em;
     color: #ffffff;
     font-weight: 600;
     background: #0d2c81;
-    width: 100%;
 }
