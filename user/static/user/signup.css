@@ -21,13 +21,13 @@ h1 {
 }
 
 .first_name_li {
-    margin-right: 0.5em;
+    margin-right: 0.25em;
     float: left;
-    width: calc(50% - 0.5em);
+    width: calc(50% - 0.25em);
 }
 
 .second_name_li {
-    margin-left: 0.5em;
+    margin-left: 0.25em;
     float: left;
-    width: calc(50% - 0.5em);
+    width: calc(50% - 0.25em);
 }

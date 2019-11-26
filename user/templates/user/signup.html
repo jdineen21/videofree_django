@@ -13,25 +13,49 @@
 {% block content %}
     <div id="form_container">
         <h1>Create New Account</h1>
-        <form id="generic_form" action="{% url 'user:sign-up' %}" method="post">
+        <form id="generic_form" action="{% url 'user:sign-up' %}" method="post" novalidate>
             {% csrf_token %}
             {{ signup_form.non_field_errors }}
             <ul>
                 {% for field in signup_form %}
                     {% if field.name == 'first_name' %}
-                        <li class="input_li first_name_li">
+                        {% if field.errors %}
+                            <li class="input_li first_name_li errored_li">
+                        {% else %}
+                            <li class="input_li first_name_li">
+                        {% endif %}
                             {{ field }}
-                            {{ field.errors }}
+                            {% for error in field.errors %}
+                                <p class="error">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
                         </li>
                     {% elif field.name == 'last_name' %}
-                        <li class="input_li second_name_li">
+                        {% if field.errors %}
+                            <li class="input_li second_name_li errored_li">
+                        {% else %}
+                            <li class="input_li second_name_li">
+                        {% endif %}
                             {{ field }}
-                            {{ field.errors }}
+                            {% for error in field.errors %}
+                                <p class="error">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
                         </li>
                     {% else %}
-                        <li class="input_li">
+                        {% if field.errors %}
+                            <li class="input_li errored_li">
+                        {% else %}
+                            <li class="input_li">
+                        {% endif %}
                             {{ field }}
-                            {{ field.errors }}
+                            {% for error in field.errors %}
+                                <p class="error">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
                         </li>
                     {% endif %}
                 {% endfor %}
