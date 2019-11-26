@@ -21,11 +21,12 @@ def signup(request):
                 )
                 user.save()
             except IntegrityError as e:
-                form.add_error('username', 'Username Already Taken')
+                form.add_error('username', 'Username already taken')
                 context = {
                     'signup_form': form,
                 }
                 return render(request, 'user/signup.html', context)
+            
             return JsonResponse(request.POST)
         else:
             form = SignupForm(request.POST)

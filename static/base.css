@@ -61,7 +61,7 @@ ul {
 
 .input_li {
     margin-bottom: 0.75em;
-    padding: 0.1em 0.15em;
+    padding: 0.125em 0.15em;
     display: inline-block;
     width: 100%;
 }
@@ -73,7 +73,7 @@ ul {
 }
 
 .errored_li {
-    border-radius: 0.3em;
+    border-radius: 0.4em;
     background: rgb(255, 76, 76);
 }
 
