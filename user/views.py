@@ -2,6 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
+from django.db import IntegrityError
+
 from .forms import SignupForm, LoginForm
 
 def signup(request):
@@ -9,14 +11,21 @@ def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            user = User.objects.create_user(
-                username=request.POST['username'],
-                email=request.POST['email'],
-                password=request.POST['password'],
-                first_name=request.POST['first_name'],
-                last_name=request.POST['last_name']
-            )
-            user.save()
+            try:
+                user = User.objects.create_user(
+                    username=request.POST['username'],
+                    email=request.POST['email'],
+                    password=request.POST['password'],
+                    first_name=request.POST['first_name'],
+                    last_name=request.POST['last_name']
+                )
+                user.save()
+            except IntegrityError as e:
+                form.add_error('username', 'Username Already Taken')
+                context = {
+                    'signup_form': form,
+                }
+                return render(request, 'user/signup.html', context)
             return JsonResponse(request.POST)
         else:
             form = SignupForm(request.POST)
