@@ -12,7 +12,7 @@
 
 {% block content %}
     <div id="form_container">
-        <h1>Login</h1>
+        <h1>Login to your account</h1>
         <form id="generic_form" action="{% url 'user:login' %}" method="post">
             {% csrf_token %}
             {{ login_form.non_field_errors }}
