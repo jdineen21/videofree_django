@@ -110,3 +110,23 @@ class SignupForm(forms.Form):
         if len(password) < 8:
             raise forms.ValidationError('This field must be at least 8 character in length')
         return password
+
+class LoginForm(forms.Form):
+    username = forms.CharField(
+        label='',
+        max_length=30,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'text_input',
+            'placeholder': 'Username',
+        })
+    )
+    password = forms.CharField(
+        label='',
+        max_length=50,
+        required=False,
+        widget=forms.PasswordInput(attrs={
+            'class': 'text_input',
+            'placeholder': 'Password',
+        })
+    )

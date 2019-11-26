@@ -19,15 +19,3 @@ h1 {
     padding-top: 7em;
     width: 34em;
 }
-
-.first_name_li {
-    margin-right: 0.5em;
-    float: left;
-    width: calc(50% - 0.5em);
-}
-
-.second_name_li {
-    margin-left: 0.5em;
-    float: left;
-    width: calc(50% - 0.5em);
-}

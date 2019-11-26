@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}VideoFree.com | Login{% endblock %}
+
+{% block description %}{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'user/login.css' %}">
+{% endblock  %}
+
+{% block content %}
+    <div id="form_container">
+        <h1>Login</h1>
+        <form id="generic_form" action="{% url 'user:sign-up' %}" method="post">
+            {% csrf_token %}
+            {{ login_form.non_field_errors }}
+            <ul>
+                {% for field in login_form %}
+                    <li class="input_li">
+                        {{ field }}
+                        {{ field.errors }}
+                    </li>
+                {% endfor %}
+                <li class="submit_li">
+                    <input type="submit" value="Login" class="submit">
+                </li>
+            </ul>
+        </form>
+    </div>
+{% endblock %}

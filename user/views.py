@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
-from .forms import SignupForm
+from .forms import SignupForm, LoginForm
 
 def signup(request):
     form = SignupForm()
@@ -27,4 +27,16 @@ def signup(request):
     return render(request, 'user/signup.html', context)
 
 def login(request):
-    return render(request, 'user/login.html')
+    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        return JsonResponse(request.POST)
+        if form.is_valid():
+            return JsonResponse(request.POST)
+        else:
+            form = LoginForm(request.POST)
+    
+    context = {
+        'login_form': form,
+    }
+    return render(request, 'user/login.html', context)
