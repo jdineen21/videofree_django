@@ -12,6 +12,17 @@ body {
     min-height: 100vh;
 }
 
+a {
+    color: #0077cc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover, a:active {
+    color: #33aaff;
+    text-decoration: none;
+}
+
 ul {
     margin: 0;
     padding: 0;

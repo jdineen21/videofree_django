@@ -1,6 +1,6 @@
 body {
     color: #ffffff;
-    background: #505050;
+    background: #9e9e9e;
     min-height: 100vh;
     min-width: 100vw;
 }
@@ -30,4 +30,9 @@ h1 {
     margin-left: 0.25em;
     float: left;
     width: calc(50% - 0.25em);
+}
+
+#ahaa_container {
+    padding-top: 2.2em;
+    text-align: center;
 }
