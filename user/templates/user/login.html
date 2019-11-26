@@ -18,10 +18,18 @@
             {{ login_form.non_field_errors }}
             <ul>
                 {% for field in login_form %}
-                    <li class="input_li">
-                        {{ field }}
-                        {{ field.errors }}
-                    </li>
+                    {% if field.errors %}
+                            <li class="input_li errored_li">
+                        {% else %}
+                            <li class="input_li">
+                        {% endif %}
+                            {{ field }}
+                            {% for error in field.errors %}
+                                <p class="error">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </li>
                 {% endfor %}
                 <li class="submit_li">
                     <input type="submit" value="Login" class="submit">
