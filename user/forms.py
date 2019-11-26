@@ -1,7 +1,12 @@
 
+import string
+import re
+
 from django import forms
 
-ALPHA = 'abcdefghijklmnopqrstuvwxyz'
+ALPHA_LOWER = string.ascii_lowercase
+ALPHA_UPPER = string.ascii_uppercase
+PUNCTUATION = string.punctuation
 
 class SignupForm(forms.Form):
     username = forms.CharField(
@@ -51,7 +56,6 @@ class SignupForm(forms.Form):
     )
 
     def clean_username(self):
-        # Add symbol validation
         username = self.cleaned_data.get('username')
         if len(username) == 0:
             raise forms.ValidationError('This field is required')
@@ -59,6 +63,8 @@ class SignupForm(forms.Form):
             raise forms.ValidationError('This username is too short')
         if len(username) > 30:
             raise forms.ValidationError('This username is too long')
+        if not username[0].isalnum() or not username[-1].isalnum():
+            raise forms.ValidationError('First and last character must be alphanumeric')
         return username
 
     def clean_first_name(self):
@@ -103,12 +109,21 @@ class SignupForm(forms.Form):
         return email
     
     def clean_password(self):
-        # Password complexity check needs adding max legnth as well
         password = self.cleaned_data.get('password')
-        if len(password) == 0:
-            raise forms.ValidationError('This field is required')
+        
         if len(password) < 8:
-            raise forms.ValidationError('This field must be at least 8 character in length')
+            raise forms.ValidationError('This password is too short')
+        if len(password) > 50:
+            raise forms.ValidationError('This password is too long')
+        if not re.search('[a-z]', password):
+            raise forms.ValidationError('Password must container at least one lowercase letter')
+        if not re.search('[A-Z]', password):
+            raise forms.ValidationError('Password must container at least one lowercase letter')
+        if not re.search('[0-9]', password):
+            raise forms.ValidationError('Password must container at least one number')
+        if not re.search('['+ PUNCTUATION +']', password):
+            raise forms.ValidationError('Password must container at least one symbol')
+
         return password
 
 class LoginForm(forms.Form):
