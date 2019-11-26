@@ -21,31 +21,6 @@ h1 {
     width: 34em;
 }
 
-#signup_container {
-    padding: 4em 2em;
-    background: rgb(44, 46, 51);
-    border-radius: 0.3em;
-}
-
-#signup_form {
-    padding-top: 1.4em;
-}
-
-#signup_form input {
-    border-radius: 0.3em;
-    border: 2px solid #6e6e6e;
-}
-
-ul {
-    width: 100%;
-}
-
-.input_li {
-    margin-bottom: 1em;
-    display: inline-block;
-    width: 100%;
-}
-
 .first_name_li {
     margin-right: 0.5em;
     float: left;
@@ -56,21 +31,4 @@ ul {
     margin-left: 0.5em;
     float: left;
     width: calc(50% - 0.5em);
-}
-
-.text_input {
-    padding: 1em;
-    display: block;
-    width: 100%;
-}
-
-.submit_li {
-    text-align: right;
-}
-
-.submit {
-    padding: 1em 2em;
-    color: #ffffff;
-    font-weight: 600;
-    background: #0d2c81;
 }

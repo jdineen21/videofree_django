@@ -21,9 +21,8 @@ class UploadFileForm(forms.Form):
     tags = forms.MultipleChoiceField(
         label='',
         choices=FOOTAGE_TAGS,
-        widget=forms.CheckboxSelectMultiple(
-
-        )
+        required=False,
+        widget=forms.RadioSelect,
     )
     description = forms.CharField(
         label='',
@@ -36,4 +35,5 @@ class UploadFileForm(forms.Form):
     )
     footage_file = forms.FileField(
         label='',
+        required=False,
     )

@@ -11,11 +11,18 @@
 {% endblock  %}
 
 {% block content %}
-    <div id="upload_container">
-        <form id="upload_form" action="{% url 'footage:upload' %}" method="post">
+    <div id="form_container">
+        <h1>Upload New Footage</h1>
+        <form id="generic_form" action="{% url 'footage:upload' %}" method="post">
             {% csrf_token %}
+            {{ signup_form.non_field_errors }}
             <ul>
-                {{ upload_file_form.as_ul }}
+                {% for field in upload_file_form %}
+                    <li class="input_li">
+                        {{ field }}
+                        {{ field.errors }}
+                    </li>
+                {% endfor %}
                 <li class="submit_li">
                     <input type="submit" value="Upload Footage" class="submit">
                 </li>

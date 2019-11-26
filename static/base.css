@@ -1,4 +1,6 @@
 
+/* General Rules */
+
 * {
     box-sizing: border-box;
 }
@@ -14,4 +16,48 @@ ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+
+/* Generic Form Style */
+
+#form_container {
+    padding: 4em 2em;
+    background: rgb(44, 46, 51);
+    border-radius: 0.3em;
+}
+
+#generic_form {
+    padding-top: 1.4em;
+}
+
+#generic_form input {
+    border-radius: 0.3em;
+    border: 2px solid #6e6e6e;
+}
+
+.input_li {
+    margin-bottom: 1em;
+    display: inline-block;
+    width: 100%;
+}
+
+.generic_form ul {
+    width: 100%;
+}
+
+.text_input {
+    padding: 1em;
+    display: block;
+    width: 100%;
+}
+
+.submit_li {
+    text-align: right;
+}
+
+.submit {
+    padding: 1em 2em;
+    color: #ffffff;
+    font-weight: 600;
+    background: #0d2c81;
 }
