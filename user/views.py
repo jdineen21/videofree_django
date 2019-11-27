@@ -11,25 +11,15 @@ def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            try:
-                user = User.objects.create_user(
-                    username=request.POST['username'],
-                    email=request.POST['email'],
-                    password=request.POST['password'],
-                    first_name=request.POST['first_name'],
-                    last_name=request.POST['last_name']
-                )
-                user.save()
-            except IntegrityError as e:
-                form.add_error('username', 'Username already taken')
-                context = {
-                    'signup_form': form,
-                }
-                return render(request, 'user/signup.html', context)
-            
+            user = User.objects.create_user(
+                username=request.POST['username'],
+                email=request.POST['email'],
+                password=request.POST['password'],
+                first_name=request.POST['first_name'],
+                last_name=request.POST['last_name']
+            )
+            user.save()
             return JsonResponse(request.POST)
-        else:
-            form = SignupForm(request.POST)
     
     context = {
         'signup_form': form,

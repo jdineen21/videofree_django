@@ -3,6 +3,7 @@ import string
 import re
 
 from django import forms
+from django.contrib.auth.models import User
 
 ALPHA_LOWER = string.ascii_lowercase
 ALPHA_UPPER = string.ascii_uppercase
@@ -57,6 +58,7 @@ class SignupForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
+
         if len(username) == 0:
             raise forms.ValidationError('This field is required')
         if len(username) < 5:
@@ -65,6 +67,10 @@ class SignupForm(forms.Form):
             raise forms.ValidationError('This username is too long')
         if not username[0].isalnum() or not username[-1].isalnum():
             raise forms.ValidationError('First and last character must be alphanumeric')
+
+        if User.objects.filter(username=username):
+            raise forms.ValidationError('This username has already been taken')
+
         return username
 
     def clean_first_name(self):
@@ -105,12 +111,17 @@ class SignupForm(forms.Form):
         for domain in domain_levels:
             if len(domain) == 0:
                 raise forms.ValidationError('This email is not valid')
+        
+        if User.objects.filter(email=email):
+            raise forms.ValidationError('This email address already has an account associated with it')
 
         return email
     
     def clean_password(self):
         password = self.cleaned_data.get('password')
         
+        if len(password) == 0:
+            raise forms.ValidationError('This field is required')
         if len(password) < 8:
             raise forms.ValidationError('This password is too short')
         if len(password) > 50:
@@ -118,7 +129,7 @@ class SignupForm(forms.Form):
         if not re.search('[a-z]', password):
             raise forms.ValidationError('Password must container at least one lowercase letter')
         if not re.search('[A-Z]', password):
-            raise forms.ValidationError('Password must container at least one lowercase letter')
+            raise forms.ValidationError('Password must container at least one upper letter')
         if not re.search('[0-9]', password):
             raise forms.ValidationError('Password must container at least one number')
         if not re.search('['+ PUNCTUATION +']', password):
