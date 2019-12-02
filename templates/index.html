@@ -11,17 +11,24 @@
 {% endblock  %}
 
 {% block content %}
+    <div class="topbar"></div>
     <div class="video_container">
-        <video autoplay muted loop id="video">
-            <source src="{% static 'assets/video/Frontpage_stack1.mp4' %}" type="video/mp4">
-        </video>
-        <video autoplay muted loop id="video">
-            <source src="{% static 'assets/video/Frontpage_stack2.mp4' %}" type="video/mp4">
-        </video>
-        <video autoplay muted loop id="video">
-            <source src="{% static 'assets/video/Frontpage_stack1.mp4' %}" type="video/mp4">
-        </video>
+        <ul class="video_ul">
+            <li class="video_li">
+                <video autoplay muted loop>
+                    <source src="{% static 'assets/video/Frogatt edge/flyby 03 1080p50.mp4' %}" type="video/mp4">
+                </video>
+            </li>
+            <li class="video_li">
+                <video autoplay muted loop>
+                    <source src="{% static 'assets/video/Misty Froest/1080p 50mbps.mp4' %}" type="video/mp4">
+                </video>
+            </li>
+            <li class="video_li">
+                <video autoplay muted loop>
+                    <source src="{% static 'assets/video/Frogatt edge/flyby 05 1080p50.mp4' %}" type="video/mp4">
+                </video>
+            </li>
+        </ul>
     </div>
-
-    
 {% endblock %}
