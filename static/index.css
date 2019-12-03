@@ -10,15 +10,11 @@
     width: 100%;
 }
 
-.video_li {
-    min-height: 300px;
-    height: 60%;
-}
-
 video {
     object-fit: cover;
     pointer-events: none;
     user-select: none;
-    height: 100%;
+    height: calc((100vh - 4em) / 3);
+    min-height: 200px;
     width: 100%;
 }
