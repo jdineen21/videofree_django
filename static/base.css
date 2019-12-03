@@ -28,6 +28,17 @@ ul {
     list-style-type: none;
 }
 
+/* Generic Page Style */
+
+.topbar {
+    height: 4em;
+    background: black;
+}
+
+.content {
+    padding-top: 4em;
+}
+
 /* Generic Form Style */
 
 #form_container {
