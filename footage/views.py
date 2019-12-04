@@ -9,7 +9,7 @@ from .forms import UploadFileForm
 from .models import File
 
 def detail(request, key):
-    serialized_row = list(File.objects.filter(uuid=uuid.UUID(key)).values())
+    serialized_row = list(File.objects.filter(uuid=uuid.UUID(key)).values())[0]
     return JsonResponse(serialized_row, safe=False)
     return render(request, 'footage/detail.html')
 
