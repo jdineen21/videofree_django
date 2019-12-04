@@ -10,7 +10,6 @@ from .models import File
 
 def detail(request, key):
     serialized_row = list(File.objects.filter(uuid=uuid.UUID(key)).values())
-    print (type(serialized_row))
     return JsonResponse(serialized_row, safe=False)
     return render(request, 'footage/detail.html')
 
