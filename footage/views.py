@@ -1,5 +1,7 @@
 import uuid
+import json
 
+from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 
@@ -7,7 +9,9 @@ from .forms import UploadFileForm
 from .models import File
 
 def detail(request, key):
-    return HttpResponse(Footage.objects.filter(uuid=uuid.UUID(key)))
+    serialized_row = list(File.objects.filter(uuid=uuid.UUID(key)).values())
+    print (type(serialized_row))
+    return JsonResponse(serialized_row, safe=False)
     return render(request, 'footage/detail.html')
 
 def upload(request):
