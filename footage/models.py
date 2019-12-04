@@ -4,7 +4,7 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-class Footage(models.Model):
+class File(models.Model):
     OTHER_TAG = 'OTH'
     FOOTAGE_TAGS = [
         ('ACT', 'Action Stock'),
@@ -12,7 +12,8 @@ class Footage(models.Model):
         ('LND', 'Landscapes Stock'),
         (OTHER_TAG, 'Other'),
     ]
-    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    key = models.IntegerField(primary_key=True)
+    uuid = models.UUIDField(default=uuid.uuid4)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     file_loc = models.CharField(
@@ -30,4 +31,4 @@ class Footage(models.Model):
     description = models.TextField()
 
     class Meta:
-        verbose_name_plural = 'Footage'
+        verbose_name_plural = 'Files'

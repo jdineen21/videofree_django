@@ -1,5 +1,8 @@
 from django.contrib import admin
 
-from .models import Footage
+from .models import File
 
-admin.site.register(Footage)
+class FileAdmin(admin.ModelAdmin):
+    list_display = ('key', 'uuid', 'user', 'title', 'tags', 'file_loc')
+
+admin.site.register(File, FileAdmin)
