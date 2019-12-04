@@ -5,6 +5,6 @@ from . import views
 
 app_name = 'footage'
 urlpatterns = [
-    path('', views.detail, name='detail'),
+    path('<int:uuid>/', views.detail, name='detail'),
     path('upload/', views.upload, name='upload'),
 ]
