@@ -1,0 +1,50 @@
+
+.left_content {
+    padding: 2em 4em;
+    float: left;
+    width: 60%;
+}
+
+.right_content {
+    float: left;
+    width: 40%;
+}
+
+.title h1 {
+    margin-top: 0;
+}
+
+.video_container {
+    width: 100%;
+}
+
+.video_container video {
+    width: 100%;
+    border: 5px solid grey;
+    box-shadow: 5px 5px 10px black;
+}
+
+.user_detail {
+    margin: 2em 0;
+    padding: 1em;
+    border: 5px solid grey;
+    box-shadow: 5px 5px 10px black;
+    background: rgb(214, 214, 214);
+}
+
+.user_img {
+    margin-right: 1em;
+    display: inline-block;
+}
+
+.user_img img {
+    width: 100px;
+}
+
+.user_text {
+    display: inline-block;
+}
+
+.user_text h4 {
+    margin: 0;
+}

@@ -12,17 +12,26 @@
 
 {% block content %}
     <div class="left_content">
-        <video autoplay muted loop>
-            <source src="{{ footage_file.footage_file.url }} {{ MEDIA_ROOT }}" type="video/mp4">
-        </video>
+        <div class="title">
+            <h1>{{ footage_file.title }}</h1>
+        </div>
+        <div class="video_container">
+            <video autoplay muted loop>
+                <source src="{{ footage_file.footage_file.url }} {{ MEDIA_ROOT }}" type="video/mp4">
+            </video>
+        </div>
         <div class="user_detail">
-            <div class="user_textimg">
-                <img src="" alt="">
-                <h4></h4>
-                <h4></h4>
-            </div>
-            <div class="user_work">
-
+            <div>
+                <div class="user_img">
+                    <img src="{% static 'assets/images/profile-placeholder.jpg' %}" alt="Profile Picture">
+                </div>
+                <div class="user_text">
+                    <h4>Name: {{ footage_file.user }}</h4>
+                    <h4>Job</h4>
+                </div>
+                <div class="user_work">
+    
+                </div>
             </div>
         </div>
     </div>
