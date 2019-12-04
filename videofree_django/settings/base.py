@@ -109,6 +109,6 @@ STATICFILES_DIRS = [
 # Media files where uploaded and downloadable content are stored
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 ADMIN_MEDIA_PREFIX = '/media/admin/'

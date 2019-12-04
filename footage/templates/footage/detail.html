@@ -13,7 +13,7 @@
 {% block content %}
     <div class="left_content">
         <video autoplay muted loop>
-            <source src="{% static 'assets/video/Frogatt edge/flyby 03 1080p50.mp4' %}" type="video/mp4">
+            <source src="{{ footage_file.footage_file.url }} {{ MEDIA_ROOT }}" type="video/mp4">
         </video>
         <div class="user_detail">
             <div class="user_textimg">

@@ -12,13 +12,12 @@ class File(models.Model):
         ('LND', 'Landscapes Stock'),
         (OTHER_TAG, 'Other'),
     ]
-    key = models.IntegerField(primary_key=True)
+    key = models.IntegerField(primary_key=True, editable=False)
     uuid = models.UUIDField(default=uuid.uuid4)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    file_loc = models.CharField(
-        verbose_name='File Location',
-        max_length=100,
+    footage_file = models.FileField(
+        upload_to='footage/',
     )
     upload_datetime = models.DateTimeField(
         auto_now_add=True,
