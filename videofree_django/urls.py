@@ -15,4 +15,4 @@ urlpatterns = [
 ]
 
 if settings.DEBUG is True:
-    urlpatterns += static('/media/', document_root='/home/joe/projects/videofree_django/media')
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
