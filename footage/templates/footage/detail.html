@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}VideoFree.com | Footage{% endblock %}
+{% block title %}{{ footage_file.title }} | VideoFree.com{% endblock %}
 
 {% block description %}{% endblock %}
 
@@ -12,7 +12,7 @@
 
 {% block content %}
     <div class="left_content">
-        <div class="container">
+        <div class="container left">
             <div class="title">
                 <h1>{{ footage_file.title }}</h1>
             </div>
@@ -38,20 +38,20 @@
         </div>
     </div>
     <div class="right_content">
-        <div class="container">
+        <div class="container right">
             <div class="footage_credit">
                 <h1>Credit Placeholder</h1>
             </div>
-            <div class="footage_download">
-                <div class="download_container">
+            <ul class="footage_download">
+                <li class="download_container">
                     <a href="{{ footage_file.footage_file.url }}" class="download_button" download>Download</a>
                     <div class="download_size">File Size: {{ footage_file_size }}</div>
-                </div>
-                <div class="download_container">
+                </li>
+                <li class="download_container">
                     <a href="{{ footage_file.footage_file.url }}" class="download_button" download>Download</a>
                     <div class="download_size">File Size: {{ footage_file_size }}</div>
-                </div>
-            </div>
+                </li>
+            </ul>
             <div class="footage_details">
                 <h1>File Details Placeholder</h1>
                 <p>{{ footage_file.description }}</p>
