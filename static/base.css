@@ -35,8 +35,8 @@ ul {
     background: black;
 }
 
-.content {
-    padding-top: 4em;
+.container {
+    padding: 2em 4em;
 }
 
 /* Generic Form Style */

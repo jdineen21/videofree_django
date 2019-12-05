@@ -1,3 +1,4 @@
 django
 gunicorn
 faker
+hurry.filesize

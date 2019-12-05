@@ -1,8 +1,18 @@
 
+#content {
+    display: inline-block;
+}
+
+.container {
+    display: inline-block;
+    width: 100%;
+}
+
 .left_content {
-    padding: 2em 4em;
     float: left;
     width: 60%;
+    border-right: 0.4em solid black;
+    min-height: 100%;
 }
 
 .right_content {
@@ -20,14 +30,14 @@
 
 .video_container video {
     width: 100%;
-    border: 5px solid grey;
+    border: 10px solid grey;
     box-shadow: 5px 5px 10px black;
 }
 
 .user_detail {
     margin: 2em 0;
     padding: 1em;
-    border: 5px solid grey;
+    border: 3px solid grey;
     box-shadow: 5px 5px 10px black;
     background: rgb(214, 214, 214);
 }
@@ -47,4 +57,51 @@
 
 .user_text h4 {
     margin: 0;
+}
+
+.footage_credit {
+    margin-bottom: 2em;
+    padding: 1em 0;
+    text-align: center;
+    border: 0.3em solid black;
+}
+
+.footage_download {
+    text-align: center;
+}
+
+.download_container {
+    margin-bottom: 4em;
+    padding: 0 4em;
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+}
+
+.download_button {
+    padding: 0.5em 2em;
+    background: #4fa6f5;
+    color: white;
+    font-size: 1.3em;
+    border-radius: 0.2em;
+    display: block;
+}
+
+.download_button:hover {
+    color: rgb(219, 219, 219);
+    background: #3c7ebb;
+}
+
+.download_size {
+    padding: 0.6em 1em;
+    background: #b6d4ee;
+    display: inline-block;
+    border-radius: 0.1em;
+}
+
+.footage_details {
+    padding: 1em 0;
+    text-align: center;
+    border: 0.3em solid black;
+    height: 30em;
 }

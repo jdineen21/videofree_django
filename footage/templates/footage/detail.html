@@ -12,41 +12,49 @@
 
 {% block content %}
     <div class="left_content">
-        <div class="title">
-            <h1>{{ footage_file.title }}</h1>
-        </div>
-        <div class="video_container">
-            <video autoplay muted loop>
-                <source src="{{ footage_file.footage_file.url }} {{ MEDIA_ROOT }}" type="video/mp4">
-            </video>
-        </div>
-        <div class="user_detail">
-            <div>
-                <div class="user_img">
-                    <img src="{% static 'assets/images/profile-placeholder.jpg' %}" alt="Profile Picture">
-                </div>
-                <div class="user_text">
-                    <h4>Name: {{ footage_file.user }}</h4>
-                    <h4>Job</h4>
-                </div>
-                <div class="user_work">
-    
+        <div class="container">
+            <div class="title">
+                <h1>{{ footage_file.title }}</h1>
+            </div>
+            <div class="video_container">
+                <video autoplay muted loop>
+                    <source src="{{ footage_file.footage_file.url }}" type="video/mp4">
+                </video>
+            </div>
+            <div class="user_detail">
+                <div>
+                    <div class="user_img">
+                        <img src="{% static 'assets/images/profile-placeholder.jpg' %}" alt="Profile Picture">
+                    </div>
+                    <div class="user_text">
+                        <h4>Name: {{ footage_file.user }}</h4>
+                        <h4>Job</h4>
+                    </div>
+                    <!-- <div class="user_work">
+        
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
     <div class="right_content">
-        <div class="footage_credit">
-            <h1>Credit</h1>
-        </div>
-        <div class="footage_download">
-            <div class="download_container">
-                <a href="" class="download_button"></a>
-                <div class="download_size"></div>
+        <div class="container">
+            <div class="footage_credit">
+                <h1>Credit Placeholder</h1>
             </div>
-        </div>
-        <div class="footage_details">
-            <h1>File Details</h1>
+            <div class="footage_download">
+                <div class="download_container">
+                    <a href="{{ footage_file.footage_file.url }}" class="download_button" download>Download</a>
+                    <div class="download_size">File Size: {{ footage_file_size }}</div>
+                </div>
+                <div class="download_container">
+                    <a href="{{ footage_file.footage_file.url }}" class="download_button" download>Download</a>
+                    <div class="download_size">File Size: {{ footage_file_size }}</div>
+                </div>
+            </div>
+            <div class="footage_details">
+                <h1>File Details Placeholder</h1>
+            </div>
         </div>
     </div>
 {% endblock %}

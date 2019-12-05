@@ -1,6 +1,8 @@
 import uuid
 import json
 
+from hurry.filesize import size
+
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
@@ -10,10 +12,12 @@ from .models import File
 
 def detail(request, key):
     footage_file = File.objects.get(uuid=uuid.UUID(key))
-    #footage_file = list(File.objects.filter(uuid=uuid.UUID(key)).values())[0]
-    #return JsonResponse(footage_file, safe=False)
+
+    footage_file_size = size(footage_file.footage_file.size)
+
     context = {
         'footage_file': footage_file,
+        'footage_file_size': footage_file_size,
     }
     return render(request, 'footage/detail.html', context)
 
